@@ -3,11 +3,11 @@ import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 
 
-class HelloWorldExample implements AutoCloseable
+class Neo4j_Connection_Test implements AutoCloseable
 {
     private final Driver driver;
 
-    public HelloWorldExample( String uri, String user, String password )
+    public Neo4j_Connection_Test(String uri, String user, String password )
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
     }
@@ -20,7 +20,7 @@ class HelloWorldExample implements AutoCloseable
 
     public static void main( String... args ) throws Exception
     {
-        try ( HelloWorldExample greeter = new HelloWorldExample( "bolt://localhost:7687", "neo4j", "12345" ) )
+        try ( Neo4j_Connection_Test greeter = new Neo4j_Connection_Test( "bolt://localhost:7687", "neo4j", "12345" ) )
         {
             System.out.println( "Connection Success" );
         }
